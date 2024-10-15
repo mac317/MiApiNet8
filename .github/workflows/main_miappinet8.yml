@@ -25,13 +25,13 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: dotnet publish -c Release -o MiAppNet8/MiMiAppNet8/MiApiNet8.csproj
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          path: MiAppNet8/MiMiAppNet8/MiApiNet8.csproj
 
   deploy:
     runs-on: windows-latest
@@ -51,9 +51,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_46248512494F4E73BD7087B426467651 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_5401D8D911BC46CAB2D91B89439D399D }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_15F3DBF11CE04356B96C3BF8BD2F8382 }}
+          client-id: abbb74cf-19d6-4dd1-851a-6cf8ab151d47
+          tenant-id: 578ad00a-d59b-48c6-a3f8-6e66f7ec4a4f
+          subscription-id: 531925e0-4eb3-40e5-920a-1debb1b85df8
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
